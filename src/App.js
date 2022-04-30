@@ -1,24 +1,21 @@
-import logo from './logo.svg';
 import './App.css';
-
+import React, {useState} from 'react';
+import Navbar from './components/Navbar';
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
+import Dashboard from './pages/Dashboard';
+import {IoMenuSharp} from 'react-icons/io5'
 function App() {
+  const [menuOpen, setMenuOpen] = useState(false);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <Router>
+      <Navbar menuOpen={menuOpen}/>
+      <IoMenuSharp className='shownav-btn' onClick={()=>{setMenuOpen(!menuOpen)}}/>
+      <Routes>
+        <Route path="/" element={<Dashboard/>}/>
+      </Routes>
+    </Router>
+    </>
   );
 }
 

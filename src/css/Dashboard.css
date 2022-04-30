@@ -1,0 +1,47 @@
+.user-balance{
+    font-size: 42px;
+}
+
+.user-balance-title{
+    font-weight: 400;
+}
+
+.dashboard-container{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.income{
+    color: green;
+}
+
+.expense{
+    color: red;
+}
+
+@media screen and (max-width:450px){
+    .user-balance{
+        font-size: 32px;
+    }
+
+    
+    .user-balance-title{
+        font-size: 22px;
+    }
+
+    .page{
+        padding: 50px 15px;
+    }
+}
+
+@media screen and (max-width:300px){
+    .user-balance{
+        font-size: 22px;
+    }
+
+    
+    .user-balance-title{
+        font-size: 15px;
+    }
+}
