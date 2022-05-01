@@ -3,3 +3,9 @@
     width: 100%;
     justify-content: space-between;
 }
+
+@media screen and (max-width: 700px){
+    .mobile-column{
+        flex-direction: column;
+    }
+}

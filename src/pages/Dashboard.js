@@ -1,8 +1,16 @@
 import React from 'react'
 import '../css/Dashboard.css'
 import Card from '../components/Card'
+import MainButton from '../components/MainButton'
 import FlexContainer from '../components/FlexContainer'
+import { useNavigate } from 'react-router-dom'
 const Dashboard = () => {
+    const navigate = useNavigate();
+    const navToDepositSpend = () => {
+        navigate('/deposit')
+    }
+
+
   return (
     <div className='page'>
         <div className="dashboard-header">
@@ -24,16 +32,15 @@ const Dashboard = () => {
             </FlexContainer>
         </div>
 
-        <FlexContainer>
+        <FlexContainer mobileColumn={true}>
             <FlexContainer>
-                <Card>
-                    <h2 className='user-balance-title'>Log an expense</h2>
-                </Card>
+                <MainButton text="Deposit / Spend" func={navToDepositSpend}/>
             </FlexContainer>
             <FlexContainer>
                 <div className="dashboard-history">
                     <p className='dashboard-history-title'>History</p>
                     <hr />
+
                 </div>
              </FlexContainer>
         </FlexContainer>

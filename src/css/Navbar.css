@@ -21,7 +21,7 @@
     cursor: pointer;
     padding: 10px 10px 10px 100px;
     transition: all 0.3s ease-in-out;
-
+    color: black;
 }
 
 .nav-item:hover{
@@ -52,4 +52,8 @@
     .no-nav-padding{
         padding: 10px;
     }
+  }
+
+  a{
+      text-decoration: none;
   }

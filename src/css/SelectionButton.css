@@ -1,0 +1,19 @@
+.selection-btn{
+    padding: 15px;
+    border: solid 3px black;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.selection-btn p{
+    font-size: 32px;
+}
+
+.selected{
+    border: solid 3px orange;
+}

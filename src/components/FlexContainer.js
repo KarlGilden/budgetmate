@@ -1,8 +1,8 @@
 import React from 'react'
 import '../css/FlexContainer.css'
-const FlexContainer = ({ children }) => {
+const FlexContainer = ({ children, mobileColumn }) => {
   return (
-    <div className='flex-container'>{ children }</div>
+    <div className={mobileColumn ? 'flex-container mobile-column' : 'flex-container'}>{ children }</div>
   )
 }
 
