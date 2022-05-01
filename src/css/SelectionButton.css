@@ -1,6 +1,6 @@
 .selection-btn{
     padding: 15px;
-    border: solid 3px black;
+    border: none;
     border-radius: 10px;
     display: flex;
     justify-content: center;
@@ -15,5 +15,5 @@
 }
 
 .selected{
-    border: solid 3px orange;
+    color: orange;
 }

@@ -1,17 +1,22 @@
-import React, {useState} from 'react'
+import React, {useContext, useEffect, useState} from 'react'
 import '../css/Dashboard.css'
 import Card from '../components/Card'
 import MainButton from '../components/MainButton'
 import FlexContainer from '../components/FlexContainer'
 import { useNavigate } from 'react-router-dom'
+import { GlobalContext } from '../context/BalanceContext'
 const Dashboard = () => {
-    const navigate = useNavigate();
-    const navToDepositSpend = () => {
-        navigate('/deposit')
-    }
+    const {transactions} = useContext(GlobalContext);
 
     const [incomeStep, setIncomeStep] = useState('Month');
     const [expensesStep, setExpensesStep] = useState('Month');
+    const [balance, setBalance] = useState();
+
+    const navigate = useNavigate();
+
+    const navToDepositSpend = () => {
+        navigate('/deposit')
+    }
 
     const changeIncomeStep = () => {
         if(incomeStep == 'Month'){
@@ -29,13 +34,27 @@ const Dashboard = () => {
         }
     }
 
+    const getBalance = async () => {
+        var sum = 0
+        for(let i=0;i<transactions.length; i++){
+            console.log(sum)
+            sum += transactions[i].amount;
+        }
+
+        setBalance(sum);
+    }
+
+    useEffect(()=>{
+        getBalance()
+    }, [])
+
   return (
     <div className='page'>
         <div className="dashboard-header">
             <FlexContainer>
                 <Card>
                     <h3 className='user-balance-title'>Your balance</h3>
-                    <p className='user-balance'>$2000</p>
+                    <p className='user-balance'>${balance}</p>
                 </Card>
             </FlexContainer>
             <FlexContainer>
