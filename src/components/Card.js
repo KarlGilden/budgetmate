@@ -1,8 +1,8 @@
 import React from 'react'
 import '../css/Card.css'
-const Card = ({ children }) => {
+const Card = ({ children, func }) => {
   return (
-    <div className='card'>{children}</div>
+    <div onClick={func} className='card'>{children}</div>
   )
 }
 

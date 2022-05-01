@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import '../css/Dashboard.css'
 import Card from '../components/Card'
 import MainButton from '../components/MainButton'
@@ -10,6 +10,24 @@ const Dashboard = () => {
         navigate('/deposit')
     }
 
+    const [incomeStep, setIncomeStep] = useState('Month');
+    const [expensesStep, setExpensesStep] = useState('Month');
+
+    const changeIncomeStep = () => {
+        if(incomeStep == 'Month'){
+            setIncomeStep('Year')
+        }else{
+            setIncomeStep('Month')
+        }
+    }
+
+    const changeExpensesStep = () => {
+        if(expensesStep == 'Month'){
+            setExpensesStep('Year')
+        }else{
+            setExpensesStep('Month')
+        }
+    }
 
   return (
     <div className='page'>
@@ -21,12 +39,12 @@ const Dashboard = () => {
                 </Card>
             </FlexContainer>
             <FlexContainer>
-                <Card>
-                    <h3 className='user-balance-title'>Income</h3>
+                <Card func={changeIncomeStep}>
+                    <h3 className='user-balance-title'>Income /{incomeStep}</h3>
                     <p className='user-balance income'>$150</p>
                 </Card>
-                <Card>
-                    <h3 className='user-balance-title'>Expenses</h3>
+                <Card func={changeExpensesStep}>
+                    <h3 className='user-balance-title'>Expenses /{expensesStep}</h3>
                     <p className='user-balance expense'>$50</p>
                 </Card>
             </FlexContainer>
