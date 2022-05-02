@@ -3,6 +3,8 @@ import '../css/Dashboard.css'
 import Card from '../components/Card'
 import MainButton from '../components/MainButton'
 import FlexContainer from '../components/FlexContainer'
+import HistoryList from '../components/HistoryList'
+
 import { useNavigate } from 'react-router-dom'
 import { GlobalContext } from '../context/BalanceContext'
 const Dashboard = () => {
@@ -77,6 +79,7 @@ const Dashboard = () => {
                 <div className="dashboard-history">
                     <p className='dashboard-history-title'>History</p>
                     <hr />
+                    <HistoryList />
 
                 </div>
              </FlexContainer>

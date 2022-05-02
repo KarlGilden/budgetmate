@@ -16,6 +16,7 @@
 
 .dashboard-history{
     width: 100%;
+    height: fit-content;
     margin: 5px;
 }
 .dashboard-history-title{
@@ -23,7 +24,7 @@
 }
 
 .dashboard-header{
-    margin-bottom: 50px;
+    margin-bottom: 25px;
 }
 
 @media screen and (max-width:450px){

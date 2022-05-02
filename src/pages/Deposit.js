@@ -27,7 +27,7 @@ const Deposit = () => {
 
     <div className='page'>
         <FlexContainer>
-            <SelectionButton positive="Deposit" negative="Spend" actionType={actionType} setActionType={setActionType}/>
+            <SelectionButton positive="Deposit" negative="Expense" actionType={actionType} setActionType={setActionType}/>
         </FlexContainer>
 
         <FlexContainer>
