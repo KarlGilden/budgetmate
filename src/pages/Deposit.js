@@ -21,7 +21,7 @@ const Deposit = () => {
       amount: actionType ? amount : -amount,
       date: "asfw"
     })
-    navigate('/')
+    navigate('/dashboard')
   }
   return (
 

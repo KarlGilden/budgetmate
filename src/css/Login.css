@@ -1,0 +1,25 @@
+.login-form{
+    max-width: 400px;
+    width: 100%;
+    height: fit-content;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.login-form input{
+    margin-bottom: 5px;
+    padding: 7px;
+    border: solid 1px grey;
+}
+
+.login-form label{
+    margin: 5px 0px;
+}
+
+.login-form button{
+    padding: 7px;
+    margin-top: 10px;
+
+    border: solid 1px grey;
+}

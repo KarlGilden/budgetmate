@@ -16,6 +16,27 @@ const Dashboard = () => {
 
     const navigate = useNavigate();
 
+    useEffect(()=>{
+        getUser()
+    })
+
+    const getUser = async () =>{
+        await fetch("https://localhost:5001/auth/user",{
+            credentials: 'include'
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data)
+            if(data.type){
+                navigate("/")
+
+            }
+        }).catch(e=>{
+            navigate("/")
+        })
+    }
+
+
     const navToDepositSpend = () => {
         navigate('/deposit')
     }
@@ -78,7 +99,6 @@ const Dashboard = () => {
             <FlexContainer>
                 <div className="dashboard-history">
                     <p className='dashboard-history-title'>History</p>
-                    <hr />
                     <HistoryList />
 
                 </div>

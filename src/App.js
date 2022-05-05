@@ -3,6 +3,7 @@ import React, {useState} from 'react';
 import Navbar from './components/Navbar';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 import Dashboard from './pages/Dashboard';
+import Home from './pages/Home';
 import {IoMenuSharp} from 'react-icons/io5'
 import Deposit from './pages/Deposit';
 import { GlobalContext, GlobalProvider } from './context/BalanceContext';
@@ -11,10 +12,11 @@ function App() {
   return (
     <GlobalProvider>
     <Router>
-      <Navbar menuOpen={menuOpen}/>
+      <Navbar setMenuOpen={setMenuOpen} menuOpen={menuOpen}/>
       <IoMenuSharp className='shownav-btn' onClick={()=>{setMenuOpen(!menuOpen)}}/>
       <Routes>
-        <Route path="/" element={<Dashboard/>}/>
+        <Route path="/" element={<Home/>}/>
+        <Route path="/dashboard" element={<Dashboard/>}/>
         <Route path="/deposit" element={<Deposit/>}/>
       </Routes>
     </Router>

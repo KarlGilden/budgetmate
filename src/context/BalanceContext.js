@@ -1,5 +1,6 @@
-import React, {createContext, useReducer} from 'react';
+import React, {createContext, useEffect, useReducer, useState} from 'react';
 import AppReducer from './AppReducer'
+
 const initialState = {
     transactions: [
         {id: 1, name: "cookies", amount: -5, date: "23/04/22"},
@@ -10,24 +11,26 @@ const initialState = {
         {id: 6, name: "Gift for Gail", amount: -200, date: "24/05/22"}
     ]
 }
-
-
 export const GlobalContext = createContext(initialState);
 
 export const GlobalProvider = ({children}) => {
     const [state, dispatch] = useReducer(AppReducer, initialState);
-    
+    const [user, setUser] = useState(null);
+
     const addTransaction = (transaction) => {
         dispatch({
             type: "ADD_TRANSACTION",
             payload: transaction
         })
     }
+
     return(
         
     <GlobalContext.Provider value={{
             transactions:state.transactions,
-            addTransaction
+            addTransaction,
+            user
+            
         }}>
         {children}
     </GlobalContext.Provider>

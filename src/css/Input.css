@@ -29,3 +29,12 @@
     margin: 10px;
 
 }
+
+@media screen and (max-width:450px){
+    .text-input-wrapper{
+        width: 60%;
+    }
+    .number-input-wrapper{
+        width: 40%;
+    }
+}
