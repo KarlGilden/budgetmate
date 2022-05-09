@@ -76,8 +76,8 @@ const Dashboard = () => {
         <div className="dashboard-header">
             <FlexContainer>
                 <Card>
-                    <h3 className='user-balance-title'>Your balance</h3>
-                    <p className='user-balance'>${balance}</p>
+                    <h2 className='user-balance-title'>Your balance</h2>
+                    <p className='user-main-balance'>${balance}</p>
                 </Card>
             </FlexContainer>
             <FlexContainer>
