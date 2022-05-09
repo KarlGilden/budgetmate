@@ -21,7 +21,7 @@ const Dashboard = () => {
     })
 
     const getUser = async () =>{
-        await fetch("https://localhost:5001/auth/user",{
+        await fetch("https://budgetmate-api.herokuapp.com/auth/user",{
             credentials: 'include'
         })
         .then(response => response.json())
