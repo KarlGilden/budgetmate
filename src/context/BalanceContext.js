@@ -17,7 +17,8 @@ export const GlobalProvider = ({children}) => {
     const getUser = async () => {
         setLoadingAuth(true)
         await fetch("https://budgetmate-api.herokuapp.com/auth/user",{
-        credentials: 'include'
+        credentials: 'include',
+        
         })
         .then(response => response.json())
         .then(data => {
