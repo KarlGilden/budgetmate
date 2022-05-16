@@ -1,15 +1,20 @@
-import React, { useContext } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useContext, useState } from 'react'
+import { Link, Navigate, useNavigate } from 'react-router-dom'
 import { GlobalContext } from '../context/BalanceContext'
 import '../css/Navbar.css'
+
 const Navbar = (props) => {
+  const [redirect, setRedirect] = useState(false)
   const closeMenu = () =>{
     props.setMenuOpen(false)
   }
+  const navigate = useNavigate()
+
   const {user, logout} = useContext(GlobalContext)
 
-  const signout = () => {
-    logout()
+  const signout = async () => {
+    await logout()
+    window.location.reload()
     closeMenu()
   }
   return (

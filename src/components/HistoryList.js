@@ -3,7 +3,7 @@ import { GlobalContext } from '../context/BalanceContext'
 import HistoryItem from './HistoryItem';
 import '../css/HistoryList.css'
 const HistoryList = () => {
-    const {transactions, loadingAuth} = useContext(GlobalContext);
+    const {transactions} = useContext(GlobalContext);
     
   return (
     <div className='history-list'>

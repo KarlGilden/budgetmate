@@ -1,4 +1,5 @@
 import React, {createContext, useEffect, useReducer, useState} from 'react';
+import { Navigate } from 'react-router-dom';
 import AppReducer from './AppReducer'
 
 export const GlobalContext = createContext();
@@ -6,6 +7,7 @@ export const GlobalContext = createContext();
 export const GlobalProvider = ({children}) => {
     const [user, setUser] = useState(null);
     const [transactions, setTransactions] = useState([]);
+    const [balance, setBalance] = useState();
     const [loadingAuth, setLoadingAuth] = useState(true);
 
     useEffect(()=>{
@@ -36,11 +38,20 @@ export const GlobalProvider = ({children}) => {
                 .then(response => response.json())
                 .then(data => {
                     setTransactions(data.sort(function(a,b){return new Date(b.date) - new Date(a.date);}))
+                    getBalance(data)
                 }).catch(e=>{
                     console.log("not authed")
                 })
         }
+    }
 
+    const getBalance = async (transactions) => {
+        var sum = 0
+        for(let i=0;i<transactions.length; i++){
+            sum += transactions[i].amount;
+        }
+
+        setBalance(sum);
     }
 
     const addTransaction = async (name, amount, date) => {
@@ -113,7 +124,8 @@ export const GlobalProvider = ({children}) => {
             loadingAuth,
             transactions,
             getTransactions,
-            addTransaction
+            addTransaction,
+            balance
         }}>
         {children}
     </GlobalContext.Provider>

@@ -9,15 +9,14 @@ import { useNavigate } from 'react-router-dom'
 import { GlobalContext } from '../context/BalanceContext'
 
 const Dashboard = () => {
+    const {transactions, balance, getTransactions, loadingAuth} = useContext(GlobalContext);
 
     useEffect(()=>{
         getTransactions()
     },[])
-    const {transactions, getTransactions, loadingAuth} = useContext(GlobalContext);
 
     const [incomeStep, setIncomeStep] = useState('Month');
     const [expensesStep, setExpensesStep] = useState('Month');
-    const [balance, setBalance] = useState();
 
     const navigate = useNavigate();
 
@@ -40,19 +39,6 @@ const Dashboard = () => {
             setExpensesStep('Month')
         }
     }
-
-    const getBalance = async () => {
-        var sum = 0
-        for(let i=0;i<transactions.length; i++){
-            sum += transactions[i].amount;
-        }
-
-        setBalance(sum);
-    }
-
-    useEffect(()=>{
-        getBalance()
-    }, [transactions])
 
   return (
     <div className='page'>
