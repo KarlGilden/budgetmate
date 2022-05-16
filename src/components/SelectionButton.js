@@ -7,7 +7,7 @@ const SelectionButton = ({positive, negative, actionType, setActionType}) => {
       setActionType(!actionType)
     }
   return (
-    <div className={'selection-btn'}><p className={actionType == true && 'selected'} onClick={()=>setActionType(true)}>{positive}</p><p className={actionType == false && 'selected'} onClick={()=>setActionType(false)}>{negative}</p></div>
+    <div className={'selection-btn'}><p className={actionType == true ? 'selected' : ''} onClick={()=>setActionType(true)}>{positive}</p><p className={actionType == false ? 'selected' : ''} onClick={()=>setActionType(false)}>{negative}</p></div>
   )
 }
 

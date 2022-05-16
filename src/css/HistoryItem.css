@@ -1,13 +1,28 @@
 .history-item{
     padding: 10px;
     display: flex;
+    justify-content: space-between;
     align-items: center;
     border-right: solid 4px transparent;
+    height: 50px;
+
 }
 
 .history-item:nth-child(even){
     background-color: rgba(237, 237, 237, 0.285);
 }
+
+.history-item:nth-child(odd){
+    background-color: rgba(174, 174, 174, 0.285);
+}
+
+.history-label-left{
+    display: flex;
+    align-items: center;
+}
+
+
+
 
 .history-label{
     margin-right: 10px;
@@ -21,4 +36,9 @@
 .history-deposit{
     border-right: solid 4px green;
 
+}
+
+.amount-label{
+    font-size: 20px;
+    width: 50px;
 }

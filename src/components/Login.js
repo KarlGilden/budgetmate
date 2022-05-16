@@ -11,24 +11,7 @@ const Login = () => {
     const navigate = useNavigate()
 
     const handleSubmit = async () => {    
-        await fetch("https://budgetmate-api.herokuapp.com/auth/login", {
-            method: "POST",
-            credentials: 'include',
-            headers: {"Content-Type": "application/json"},
-            body: JSON.stringify({
-                email,
-                password
-            })
-        }).then(response=>response.json())
-        .then(data => {
-            setError(data.message)
-            if(data.message == 'success'){
-                navigate('/dashboard')
-            }
-        }).catch(e=>{
-            //console.log(JSON.stringify(e.message.sw))
-        })
-        
+        login(email, password)
     }
     
   return (

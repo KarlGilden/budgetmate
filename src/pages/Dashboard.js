@@ -7,35 +7,19 @@ import HistoryList from '../components/HistoryList'
 
 import { useNavigate } from 'react-router-dom'
 import { GlobalContext } from '../context/BalanceContext'
+
 const Dashboard = () => {
-    const {transactions} = useContext(GlobalContext);
+
+    useEffect(()=>{
+        getTransactions()
+    },[])
+    const {transactions, getTransactions, loadingAuth} = useContext(GlobalContext);
 
     const [incomeStep, setIncomeStep] = useState('Month');
     const [expensesStep, setExpensesStep] = useState('Month');
     const [balance, setBalance] = useState();
 
     const navigate = useNavigate();
-
-    useEffect(()=>{
-        getUser()
-    })
-
-    const getUser = async () =>{
-        await fetch("https://budgetmate-api.herokuapp.com/auth/user",{
-            credentials: 'include'
-        })
-        .then(response => response.json())
-        .then(data => {
-            console.log(data)
-            if(data.type){
-                navigate("/")
-
-            }
-        }).catch(e=>{
-            navigate("/")
-        })
-    }
-
 
     const navToDepositSpend = () => {
         navigate('/deposit')
@@ -60,7 +44,6 @@ const Dashboard = () => {
     const getBalance = async () => {
         var sum = 0
         for(let i=0;i<transactions.length; i++){
-            console.log(sum)
             sum += transactions[i].amount;
         }
 
@@ -69,7 +52,7 @@ const Dashboard = () => {
 
     useEffect(()=>{
         getBalance()
-    }, [])
+    }, [transactions])
 
   return (
     <div className='page'>
@@ -77,17 +60,17 @@ const Dashboard = () => {
             <FlexContainer>
                 <Card>
                     <h2 className='user-balance-title'>Your balance</h2>
-                    <p className='user-main-balance'>${balance}</p>
+                    <p className='user-balance'>${balance}</p>
                 </Card>
             </FlexContainer>
             <FlexContainer>
                 <Card func={changeIncomeStep}>
                     <h3 className='user-balance-title'>Income /{incomeStep}</h3>
-                    <p className='user-balance income'>$150</p>
+                    <p className='user-balance income'>$0</p>
                 </Card>
                 <Card func={changeExpensesStep}>
                     <h3 className='user-balance-title'>Expenses /{expensesStep}</h3>
-                    <p className='user-balance expense'>$50</p>
+                    <p className='user-balance expense'>$0</p>
                 </Card>
             </FlexContainer>
         </div>
@@ -98,7 +81,6 @@ const Dashboard = () => {
             </FlexContainer>
             <FlexContainer>
                 <div className="dashboard-history">
-                    <p className='dashboard-history-title'>History</p>
                     <HistoryList />
 
                 </div>

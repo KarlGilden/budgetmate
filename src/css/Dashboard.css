@@ -25,6 +25,12 @@
 }
 .dashboard-history-title{
     font-size: 24px;
+    background-color: #222;
+    padding: 0px 10px;
+    color: #fff;
+    height: 50px;
+    display: flex;
+    align-items: center;
 }
 
 .dashboard-header{
