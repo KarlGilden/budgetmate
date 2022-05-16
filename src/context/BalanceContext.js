@@ -105,9 +105,7 @@ export const GlobalProvider = ({children}) => {
         .then(response=>response.json())
         .then(data => {
             console.log(data)
-            if(data.type){
-
-            }else{
+            if(data.type === undefined){
                 window.location.reload();
             }
 
