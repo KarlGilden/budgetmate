@@ -21,10 +21,10 @@ export const GlobalProvider = ({children}) => {
         })
         .then(response => response.json())
         .then(data => {
-            if(data.type){
-                setUser(false)
-            }else{
+            if(data.type === undefined){
                 setUser(true)
+            }else{
+                setUser(false)
             }
         })
         setLoadingAuth(false)
@@ -98,8 +98,8 @@ export const GlobalProvider = ({children}) => {
             credentials: 'include',
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify({
-                email,
-                password
+                "email":email,
+                "password": password
             })
         })
         .then(response=>response.json())
