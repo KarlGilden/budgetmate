@@ -56,7 +56,7 @@
 
 }
 
-@media screen and (max-height: 700px){
+@media screen and (max-height: 700px) and (max-width:400px){
     
     .hero-slogan{
         font-size: 42px;
