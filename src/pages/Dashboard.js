@@ -56,7 +56,7 @@ const Dashboard = () => {
                 </Card>
                 <Card func={changeExpensesStep}>
                     <h3 className='user-balance-title'>Expenses /{expensesStep}</h3>
-                    <p className='user-balance expense'>${monthlyExpenses}</p>
+                    <p className='user-balance expense'>${monthlyExpenses * -1}</p>
                 </Card>
             </FlexContainer>
         </div>
