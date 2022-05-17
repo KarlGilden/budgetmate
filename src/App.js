@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 import Dashboard from './pages/Dashboard';
 import Home from './pages/Home';
+import History from './pages/History';
 import {IoMenuSharp} from 'react-icons/io5'
 import Deposit from './pages/Deposit';
 import { GlobalContext, GlobalProvider } from './context/BalanceContext';
@@ -23,6 +24,7 @@ function App() {
         <Route element={<SecureRoute/>}>
           <Route path="/dashboard" element={<Dashboard/>}/>
           <Route path="/deposit" element={<Deposit/>}/>
+          <Route path="/history" element={<History/>}/>
         </Route>
       </Routes>
     </Router>

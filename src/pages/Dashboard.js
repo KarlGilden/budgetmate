@@ -67,7 +67,7 @@ const Dashboard = () => {
             </FlexContainer>
             <FlexContainer>
                 <div className="dashboard-history">
-                    <HistoryList />
+                    <HistoryList partial={true}/>
 
                 </div>
              </FlexContainer>
