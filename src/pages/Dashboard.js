@@ -42,6 +42,8 @@ const Dashboard = () => {
 
   return (
     <div className='page'>
+        {!loadingAuth ? 
+        <>
         <div className="dashboard-header">
             <FlexContainer>
                 <Card>
@@ -72,6 +74,10 @@ const Dashboard = () => {
                 </div>
              </FlexContainer>
         </FlexContainer>
+        </>
+        :
+        <p>Loading...</p>
+    }
     </div>
   )
 }

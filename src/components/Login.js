@@ -17,13 +17,13 @@ const Login = () => {
     <div className='login-form'>
         <label htmlFor="">Email:</label>
         <input 
-        type="text" 
+        type="email" 
         onChange={(e)=>{
             setEmail(e.target.value)
         }}/>
         <label htmlFor="">Password:</label>
         <input 
-        type="text" 
+        type="password" 
         onChange={(e)=>{
             setPassword(e.target.value)
         }}/>

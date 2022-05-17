@@ -120,6 +120,7 @@ export const GlobalProvider = ({children}) => {
     }
 
     const logout = async () => {
+        setLoadingAuth(true)
         await fetch("https://budgetmate-api.herokuapp.com/auth/logout",{
             credentials: 'include',
             headers: {'Content-Type': 'application/json'}
@@ -128,9 +129,11 @@ export const GlobalProvider = ({children}) => {
         .then(data => {
             console.log(data)
         })
+        setLoadingAuth(false)
     }
 
     const login = async (email, password) => {
+        setLoadingAuth(true)
         await fetch("https://budgetmate-api.herokuapp.com/auth/login", {
             method: "POST",
             credentials: 'include',
@@ -152,6 +155,8 @@ export const GlobalProvider = ({children}) => {
             }
 
         })
+        setLoadingAuth(false)
+
     }
 
     return(

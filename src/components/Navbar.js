@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react'
 import { Link, Navigate, useNavigate } from 'react-router-dom'
 import { GlobalContext } from '../context/BalanceContext'
 import '../css/Navbar.css'
+import Logo from '../images/BM-flavicon.png'
 
 const Navbar = (props) => {
   const [redirect, setRedirect] = useState(false)
@@ -18,7 +19,21 @@ const Navbar = (props) => {
     closeMenu()
   }
   return (
-    <div className={props.menuOpen ? "open nav-centered navbar" : "navbar"}>
+    <>
+    {window.location.pathname == "/" || window.location.pathname == "/login" || window.location.pathname == "/register"? 
+
+  <div className="home-nav">
+    <div className="logo">
+      <img className='logo-image' src={Logo} alt="" />
+     <p className='logo-text'>BudgetMate</p>
+
+    </div>
+    <Link className='home-nav-item' to='/login'><p>Login</p></Link>
+    <Link className='home-nav-item' to='/register'><p>Register</p></Link>
+
+  </div>
+  :
+  <div className={(props.menuOpen ? "open nav-centered navbar" : "navbar")}>
         <div className={props.menuOpen ? "nav-centered nav-items" : "nav-items"}>
             {user == true ?
             <>
@@ -38,6 +53,10 @@ const Navbar = (props) => {
             
         </div>
     </div>
+  
+    }
+    
+    </>
   )
 }
 

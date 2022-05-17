@@ -10,16 +10,19 @@ import Deposit from './pages/Deposit';
 import { GlobalContext, GlobalProvider } from './context/BalanceContext';
 import SecureRoute from './components/SecureRoute';
 import LoginRedirect from './components/LoginRedirect';
+import LoginPage from './pages/LoginPage';
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   return (
     <GlobalProvider>
     <Router>
       <Navbar setMenuOpen={setMenuOpen} menuOpen={menuOpen}/>
-      <IoMenuSharp className='shownav-btn' onClick={()=>{setMenuOpen(!menuOpen)}}/>
+      {window.location.pathname == '/' ? <></> :<IoMenuSharp className='shownav-btn' onClick={()=>{setMenuOpen(!menuOpen)}}/>}
+      
       <Routes>
         <Route element={<LoginRedirect/>}>
           <Route path="/" element={<Home/>}/>
+          <Route path="/login" element={<LoginPage/>}/>
         </Route>
         <Route element={<SecureRoute/>}>
           <Route path="/dashboard" element={<Dashboard/>}/>

@@ -1,0 +1,18 @@
+.CTAButton{
+    padding: 15px;
+    background-color: #089f05;
+    border: none;
+    color: white;
+    font-size: 24px;
+    margin: 10px;
+    width: 200px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+}
+
+.primary{
+    background-color: #089f05;
+}
+.secondary{
+    background-color: #222;
+}
