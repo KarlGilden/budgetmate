@@ -10,8 +10,10 @@ const Home = () => {
     <div className='home-page'>
       <img className='background' src={backgroundSVG} alt="" />
       <div className="hero-container">
-        <h1 className='hero-slogan'>Take your finances into <br /><span className='highlight-text'>your hands</span></h1>
-        <p className='hero-desc'>Keep track of your expenses and manage your money with our state of the art budgeting tool.</p>
+        <div className="hero-text">
+         <h1 className='hero-slogan'>Take your finances into <br /><span className='highlight-text'>your hands</span></h1>
+         <p className='hero-desc'>Keep track of your expenses and manage your money with our state of the art budgeting tool.</p>
+        </div>
         <div className="CTAButtons">
           <CTAButton text="Try the demo" color="primary"/>
           <CTAButton text="Sign up" color="secondary"/>

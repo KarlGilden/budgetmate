@@ -17,7 +17,7 @@
     background-color: #222;
 }
 
-@media screen and (max-width: 400px){
+@media screen and (max-width: 450px){
     .CTAButton{
         width: 100%;
     }
