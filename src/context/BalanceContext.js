@@ -9,6 +9,8 @@ export const GlobalProvider = ({children}) => {
     const [transactions, setTransactions] = useState([]);
     const [balance, setBalance] = useState();
     const [loadingAuth, setLoadingAuth] = useState(true);
+    const [error, setError] = useState("");
+
 
     useEffect(()=>{
         getUser()
@@ -107,7 +109,11 @@ export const GlobalProvider = ({children}) => {
         .then(data => {
             console.log(data)
             if(data.type === undefined){
-                window.location.reload();
+                if(data.message == 'success'){
+                    window.location.reload();
+                }else{
+                    setError(data.message)
+                }
             }
 
         })
@@ -124,7 +130,8 @@ export const GlobalProvider = ({children}) => {
             transactions,
             getTransactions,
             addTransaction,
-            balance
+            balance,
+            error
         }}>
         {children}
     </GlobalContext.Provider>
