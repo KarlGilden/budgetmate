@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom'
 import { GlobalContext } from '../context/BalanceContext'
 
 const Dashboard = () => {
-    const {transactions, balance, getTransactions, loadingAuth} = useContext(GlobalContext);
+    const {transactions, monthlyExpenses, monthlyIncome, balance, getTransactions, loadingAuth} = useContext(GlobalContext);
 
     useEffect(()=>{
         getTransactions()
@@ -52,11 +52,11 @@ const Dashboard = () => {
             <FlexContainer>
                 <Card func={changeIncomeStep}>
                     <h3 className='user-balance-title'>Income /{incomeStep}</h3>
-                    <p className='user-balance income'>$0</p>
+                    <p className='user-balance income'>${monthlyIncome}</p>
                 </Card>
                 <Card func={changeExpensesStep}>
                     <h3 className='user-balance-title'>Expenses /{expensesStep}</h3>
-                    <p className='user-balance expense'>$0</p>
+                    <p className='user-balance expense'>${monthlyExpenses}</p>
                 </Card>
             </FlexContainer>
         </div>

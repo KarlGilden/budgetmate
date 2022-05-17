@@ -10,6 +10,9 @@ export const GlobalProvider = ({children}) => {
     const [balance, setBalance] = useState();
     const [loadingAuth, setLoadingAuth] = useState(true);
     const [error, setError] = useState("");
+    const [monthlyExpenses, setMonthlyExpenses] = useState()
+    const [monthlyIncome, setMonthlyIncome] = useState()
+
 
 
     useEffect(()=>{
@@ -42,6 +45,8 @@ export const GlobalProvider = ({children}) => {
                 .then(data => {
                     setTransactions(data.sort(function(a,b){return new Date(b.date) - new Date(a.date);}))
                     getBalance(data)
+                    getMonthlyExpenses(data)
+                    getMonthlyIncome(data)
                 }).catch(e=>{
                     console.log("not authed")
                 })
@@ -55,6 +60,36 @@ export const GlobalProvider = ({children}) => {
         }
 
         setBalance(sum);
+    }
+
+    const getMonthlyIncome = async (transactions) => {
+        const date = new Date();
+        const year = date.getFullYear();
+        const month = date.getMonth();
+        console.log(transactions[0].date.split("-"))
+        const relTransactions = transactions.filter(t => t.amount > 0 && t.date.split("-")[0] == year.toString() && t.date.split("-")[1] <= 9 ? t.date.split("-")[1] == ("0" + (month +1)) : t.date.split("-")[1] == ("" + (month +1)))
+        console.log(relTransactions)
+        var sum = 0
+        for(let i=0;i<relTransactions.length; i++){
+            sum += relTransactions[i].amount;
+        }
+
+        setMonthlyIncome(sum);
+    }
+
+    const getMonthlyExpenses = async (transactions) => {
+        const date = new Date();
+        const year = date.getFullYear();
+        const month = date.getMonth();
+        console.log(transactions[0].date.split("-"))
+        const relTransactions = transactions.filter(t => t.amount < 0 && t.date.split("-")[0] == year.toString() && t.date.split("-")[1] <= 9 ? t.date.split("-")[1] == ("0" + (month +1)) : t.date.split("-")[1] == ("" + (month +1)))
+        console.log(relTransactions)
+        var sum = 0
+        for(let i=0;i<relTransactions.length; i++){
+            sum += relTransactions[i].amount;
+        }
+
+        setMonthlyExpenses(sum);
     }
 
     const addTransaction = async (name, amount, date) => {
@@ -131,7 +166,9 @@ export const GlobalProvider = ({children}) => {
             getTransactions,
             addTransaction,
             balance,
-            error
+            error,
+            monthlyExpenses,
+            monthlyIncome
         }}>
         {children}
     </GlobalContext.Provider>
