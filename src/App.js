@@ -11,6 +11,7 @@ import { GlobalContext, GlobalProvider } from './context/BalanceContext';
 import SecureRoute from './components/SecureRoute';
 import LoginRedirect from './components/LoginRedirect';
 import LoginPage from './pages/LoginPage';
+import RegisterPage from './pages/RegisterPage';
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route element={<LoginRedirect/>}>
           <Route path="/" element={<Home/>}/>
           <Route path="/login" element={<LoginPage/>}/>
+          <Route path="/register" element={<RegisterPage/>}/>
         </Route>
         <Route element={<SecureRoute/>}>
           <Route path="/dashboard" element={<Dashboard/>}/>

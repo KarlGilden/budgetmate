@@ -23,6 +23,7 @@
     display: flex;
     align-items: center;
     margin-right:50px;
+    color: #222;
 }
 .logo-image{
     width: 50px;

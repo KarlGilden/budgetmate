@@ -9,6 +9,7 @@ export const GlobalProvider = ({children}) => {
     const [transactions, setTransactions] = useState([]);
     const [balance, setBalance] = useState();
     const [loadingAuth, setLoadingAuth] = useState(false);
+    const [isRegistered, setIsRegistered] = useState(false);
     const [error, setError] = useState("");
     const [monthlyExpenses, setMonthlyExpenses] = useState()
     const [monthlyIncome, setMonthlyIncome] = useState()
@@ -157,12 +158,34 @@ export const GlobalProvider = ({children}) => {
 
     }
 
+    const register = async (name, email, password) => {
+        setLoadingAuth(true)
+        await fetch("https://budgetmate-api.herokuapp.com/auth/register", {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({
+                "name":name,
+                "email":email,
+                "password": password
+            })
+        })
+        .then(response=>{
+            if(response.status == 200){
+                setIsRegistered(true)
+            }
+        })
+        
+        setLoadingAuth(false)
+
+    }
+
     return(
         
     <GlobalContext.Provider value={{
             user,
             setUser,
             login,
+            register,
             logout,
             loadingAuth,
             transactions,
@@ -171,7 +194,9 @@ export const GlobalProvider = ({children}) => {
             balance,
             error,
             monthlyExpenses,
-            monthlyIncome
+            monthlyIncome,
+            isRegistered
+            
         }}>
         {children}
     </GlobalContext.Provider>

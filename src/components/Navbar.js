@@ -23,11 +23,12 @@ const Navbar = (props) => {
     {window.location.pathname == "/" || window.location.pathname == "/login" || window.location.pathname == "/register"? 
 
   <div className="home-nav">
-    <div className="logo">
-      <img className='logo-image' src={Logo} alt="" />
-     <p className='logo-text'>BudgetMate</p>
-
-    </div>
+    <Link to="/" >
+      <div className="logo">
+        <img className='logo-image' src={Logo} alt="" />
+        <p className='logo-text'>BudgetMate</p>
+      </div>
+    </Link>
     <Link className='home-nav-item' to='/login'><p>Login</p></Link>
     <Link className='home-nav-item' to='/register'><p>Register</p></Link>
 

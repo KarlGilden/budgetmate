@@ -16,3 +16,9 @@
 .secondary{
     background-color: #222;
 }
+
+@media screen and (max-width: 400px){
+    .CTAButton{
+        width: 100%;
+    }
+}
