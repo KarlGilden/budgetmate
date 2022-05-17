@@ -8,7 +8,7 @@ export const GlobalProvider = ({children}) => {
     const [user, setUser] = useState(null);
     const [transactions, setTransactions] = useState([]);
     const [balance, setBalance] = useState();
-    const [loadingAuth, setLoadingAuth] = useState(true);
+    const [loadingAuth, setLoadingAuth] = useState(false);
     const [error, setError] = useState("");
     const [monthlyExpenses, setMonthlyExpenses] = useState()
     const [monthlyIncome, setMonthlyIncome] = useState()
@@ -120,7 +120,6 @@ export const GlobalProvider = ({children}) => {
     }
 
     const logout = async () => {
-        setLoadingAuth(true)
         await fetch("https://budgetmate-api.herokuapp.com/auth/logout",{
             credentials: 'include',
             headers: {'Content-Type': 'application/json'}
@@ -129,7 +128,6 @@ export const GlobalProvider = ({children}) => {
         .then(data => {
             console.log(data)
         })
-        setLoadingAuth(false)
     }
 
     const login = async (email, password) => {
