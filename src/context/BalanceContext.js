@@ -11,8 +11,8 @@ export const GlobalProvider = ({children}) => {
     const [loadingAuth, setLoadingAuth] = useState(false);
     const [isRegistered, setIsRegistered] = useState(false);
     const [error, setError] = useState("");
-    const [monthlyExpenses, setMonthlyExpenses] = useState()
-    const [monthlyIncome, setMonthlyIncome] = useState()
+    const [monthlyExpenses, setMonthlyExpenses] = useState(0)
+    const [monthlyIncome, setMonthlyIncome] = useState(0)
 
 
 

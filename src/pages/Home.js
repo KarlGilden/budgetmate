@@ -1,11 +1,19 @@
 import React, { useContext } from 'react'
+import { useNavigate } from 'react-router-dom'
 import CTAButton from '../components/CTAButton'
 import Login from '../components/Login'
 import { GlobalContext } from '../context/BalanceContext'
 import '../css/Home.css'
 import backgroundSVG from "../images/blobs.svg"
 const Home = () => {
-  const {user, loadingAuth} = useContext(GlobalContext)
+  const {user, login, loadingAuth} = useContext(GlobalContext)
+  const navigate = useNavigate()
+  const loginDemoUser = () => {
+    login("demo@gmail.com", "demo")
+  }
+  const toRegister = () => {
+    navigate("/register")
+  }
   return (
     <div className='home-page'>
       <img className='background' src={backgroundSVG} alt="" />
@@ -15,8 +23,8 @@ const Home = () => {
          <p className='hero-desc'>Keep track of your expenses and manage your money with our state of the art budgeting tool.</p>
         </div>
         <div className="CTAButtons">
-          <CTAButton text="Try the demo" color="primary"/>
-          <CTAButton text="Sign up" color="secondary"/>
+          <CTAButton func={loginDemoUser} text="Try the demo" color="primary"/>
+          <CTAButton func={toRegister} text="Sign up" color="secondary"/>
         </div>
       </div>
     </div>

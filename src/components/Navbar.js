@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Link, Navigate, useNavigate } from 'react-router-dom'
 import { GlobalContext } from '../context/BalanceContext'
 import '../css/Navbar.css'
@@ -22,7 +22,7 @@ const Navbar = (props) => {
     <>
     {window.location.pathname == "/" || window.location.pathname == "/login" || window.location.pathname == "/register"? 
 
-  <div className="home-nav">
+  <div className={"home-nav"}>
     <Link to="/" >
       <div className="logo">
         <img className='logo-image' src={Logo} alt="" />
