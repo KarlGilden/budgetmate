@@ -36,19 +36,23 @@ const Navbar = (props) => {
   :
   <div className={(props.menuOpen ? "open nav-centered navbar" : "navbar")}>
         <div className={props.menuOpen ? "nav-centered nav-items" : "nav-items"}>
-            {user == true ?
+            {user == true &&
             <>
-              <Link to='/dashboard'><p onClick={closeMenu} className={props.menuOpen ? "no-nav-padding nav-item" : "nav-item"}>Dashboard</p></Link>
-              <Link to='/forcast'><p onClick={closeMenu} className={props.menuOpen ? "no-nav-padding nav-item" : "nav-item"}>Forecaster</p></Link>
-              <Link to='/history'><p onClick={closeMenu} className={props.menuOpen ? "no-nav-padding nav-item" : "nav-item"}>History</p></Link>
-              <Link to="/" onClick={signout}><p className={props.menuOpen ? "no-nav-padding nav-item" : "nav-item"}>Log out</p></Link>
-            </>
-
-            :
-
-            <>
-              <Link to='/login'><p onClick={closeMenu} className={props.menuOpen ? "no-nav-padding nav-item" : "nav-item"}>Login</p></Link>
-              <Link to='/register'><p onClick={closeMenu} className={props.menuOpen ? "no-nav-padding nav-item" : "nav-item"}>Register</p></Link>
+              <div className ="nav-header">
+                <div className="nav-logo">
+                  <img className='logo-image' src={Logo} alt="" />
+                  <p className='logo-text'>BudgetMate</p>
+              </div>
+              <h2>Hi, DemoUser</h2>
+              </div>
+              <div className="nav-links">
+                <Link to='/dashboard'><p onClick={closeMenu} className={props.menuOpen ? "no-nav-padding nav-item" : "nav-item"}>Dashboard</p></Link>
+                <Link to='/forcast'><p onClick={closeMenu} className={props.menuOpen ? "no-nav-padding nav-item" : "nav-item"}>Forecaster</p></Link>
+                <Link to='/history'><p onClick={closeMenu} className={props.menuOpen ? "no-nav-padding nav-item" : "nav-item"}>History</p></Link>
+              </div>
+              <div className='nav-links'>
+                <Link to="/" onClick={signout}><p className={props.menuOpen ? "no-nav-padding nav-item" : "nav-item nav-logout"}>Log out</p></Link>
+              </div>
             </>
             } 
             
