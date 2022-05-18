@@ -7,12 +7,18 @@
     flex-direction: column;
 }
 
-.login-form input{
+.login-input{
     margin-bottom: 5px;
     padding: 7px;
     border: solid 1px grey;
 }
 
+.input-error{
+    border: solid 1px red;
+}
+.small-error{
+    color: red;
+}
 .login-form label{
     margin: 5px 0px;
 }

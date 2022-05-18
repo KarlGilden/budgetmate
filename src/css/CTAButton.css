@@ -4,18 +4,41 @@
     border: none;
     color: white;
     font-size: 24px;
-    margin: 10px;
-    width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-family: 'Montserrat', sans-serif;
     font-weight: 400;
     cursor: pointer;
 }
+
+.small-width{
+    width: 200px;
+}
+
+.margin{
+    margin: 10px;
+
+}
+
+.full-width{
+    width: 100%;
+}
+
+.no-margin{
+    margin: 0px;
+}
+
+
 
 .primary{
     background-color: #089f05;
 }
 .secondary{
     background-color: #222;
+}
+.CTAButton:disabled{
+    background-color: #32a330;
 }
 
 @media screen and (max-width: 450px){

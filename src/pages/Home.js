@@ -23,8 +23,8 @@ const Home = () => {
          <p className='hero-desc'>Keep track of your expenses and manage your money with our state of the art budgeting tool.</p>
         </div>
         <div className="CTAButtons">
-          <CTAButton func={loginDemoUser} text="Try the demo" color="primary"/>
-          <CTAButton func={toRegister} text="Sign up" color="secondary"/>
+          <CTAButton fullWidth={false} margin={true} disabled={loadingAuth ? true : false} func={loginDemoUser} text={loadingAuth ? "Loading..." : "Try the demo"} color="primary"/>
+          <CTAButton fullWidth={false} margin={true} func={toRegister} text="Sign up" color="secondary"/>
         </div>
       </div>
     </div>

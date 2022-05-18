@@ -8,6 +8,8 @@
 
 }
 
+
+
 .background{
     position: absolute;
     top: 0;
@@ -35,7 +37,7 @@
 }
 
 .CTAButtons{
-
+    display: flex;
 }
 
 .hero-desc{

@@ -7,7 +7,7 @@ const RegisterPage = () => {
 
   return (
     <div className='login-page'>
-    {!loadingAuth ? <Register/> : <p>Loading...</p> }
+    <Register/>
     
     </div>
   )

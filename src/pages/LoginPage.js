@@ -6,8 +6,7 @@ const LoginPage = () => {
     const {user, loadingAuth} = useContext(GlobalContext)
     return (
       <div className='login-page'>
-        {!loadingAuth ? <Login/> : <p>Loading...</p> }
-        
+        <Login/>
       </div>
     )
 }
