@@ -11,7 +11,7 @@ const Navbar = (props) => {
   }
   const navigate = useNavigate()
 
-  const {user, logout} = useContext(GlobalContext)
+  const {user, logout, username} = useContext(GlobalContext)
 
   const signout = async () => {
     await logout()
@@ -43,7 +43,7 @@ const Navbar = (props) => {
                   <img className='logo-image' src={Logo} alt="" />
                   <p className='logo-text'>BudgetMate</p>
               </div>
-              <h2>Hi, DemoUser</h2>
+              <h2>Hi, {username}</h2>
               </div>
               <div className="nav-links">
                 <Link to='/dashboard'><p onClick={closeMenu} className={props.menuOpen ? "no-nav-padding nav-item" : "nav-item"}>Dashboard</p></Link>

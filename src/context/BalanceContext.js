@@ -13,7 +13,7 @@ export const GlobalProvider = ({children}) => {
     const [error, setError] = useState("");
     const [monthlyExpenses, setMonthlyExpenses] = useState(0)
     const [monthlyIncome, setMonthlyIncome] = useState(0)
-
+    const [username, setUsername] = useState("")
 
 
     useEffect(()=>{
@@ -29,6 +29,7 @@ export const GlobalProvider = ({children}) => {
         .then(data => {
             if(data.type === undefined){
                 setUser(true)
+                setUsername(data.name)
             }else{
                 setUser(false)
             }
@@ -193,7 +194,8 @@ export const GlobalProvider = ({children}) => {
             error,
             monthlyExpenses,
             monthlyIncome,
-            isRegistered
+            isRegistered,
+            username
             
         }}>
         {children}
