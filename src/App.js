@@ -17,8 +17,7 @@ function App() {
   return (
     <GlobalProvider>
     <Router>
-      <Navbar setMenuOpen={setMenuOpen} menuOpen={menuOpen}/>
-      {window.location.pathname == '/' ? <></> :<IoMenuSharp className='shownav-btn' onClick={()=>{setMenuOpen(!menuOpen)}}/>}
+
       
       <Routes>
         <Route element={<LoginRedirect/>}>
