@@ -12,6 +12,7 @@ import SecureRoute from './components/SecureRoute';
 import LoginRedirect from './components/LoginRedirect';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
+import Budget from './pages/Budget';
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   return (
@@ -28,6 +29,7 @@ function App() {
         <Route element={<SecureRoute/>}>
           <Route path="/dashboard" element={<Dashboard/>}/>
           <Route path="/deposit" element={<Deposit/>}/>
+          <Route path="/budget" element={<Budget/>}/>
           <Route path="/history" element={<History/>}/>
         </Route>
       </Routes>

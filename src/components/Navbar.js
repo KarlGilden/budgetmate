@@ -25,11 +25,11 @@ const Navbar = (props) => {
                       <img className='logo-image' src={Logo} alt="" />
                       <p className='logo-text'>BudgetMate</p>
                   </div>
-                  <h2>Hi, {username}</h2>
+                  <h2 className='nav-greeting'>Hi, {username}</h2>
                   </div>
                   <div className="nav-links">
                     <Link to='/dashboard'><p onClick={()=>{setIsOpen(false)}} className={props.menuOpen ? "no-nav-padding nav-item" : "nav-item"}>Dashboard</p></Link>
-                    <Link to='/forcast'><p onClick={()=>{setIsOpen(false)}} className={props.menuOpen ? "no-nav-padding nav-item" : "nav-item"}>Forecaster</p></Link>
+                    <Link to='/budget'><p onClick={()=>{setIsOpen(false)}} className={props.menuOpen ? "no-nav-padding nav-item" : "nav-item"}>Budget</p></Link>
                     <Link to='/history'><p onClick={()=>{setIsOpen(false)}} className={props.menuOpen ? "no-nav-padding nav-item" : "nav-item"}>History</p></Link>
                   </div>
                   <div className='nav-links'>
