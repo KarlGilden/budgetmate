@@ -162,3 +162,66 @@
   a{
       text-decoration: none;
   }
+
+  
+@media screen and (min-width: 1250px){
+
+    .CTAButton{
+        padding: 25px;
+        font-size: 2rem;
+    }
+
+    .small-width{
+        width: 250px;
+    }
+}
+
+@media screen and (min-width: 1750px){
+
+
+    .CTAButton{
+        padding: 25px;
+        font-size: 2rem;
+    }
+
+    .small-width{
+        width: 300px;
+    }
+}
+
+@media screen and (min-width: 1800px){
+
+    .logo-image{
+        width: 70px;
+        margin-right: 5px;
+    }
+    .logo-text{
+        font-size: 1.5rem;
+    }
+
+    .home-nav{
+        height: 100px;
+    }
+    .home-nav-item{
+        font-size: 1.5rem;
+    }
+}
+
+@media screen and (min-width: 2139px){
+
+    .logo-image{
+        width: 70px;
+        margin-right: 5px;
+    }
+    .logo-text{
+        font-size: 1.5rem;
+    }
+
+    .home-nav{
+        height: 100px;
+    }
+
+    .home-nav-item{
+        font-size: 1.5rem;
+    }
+}

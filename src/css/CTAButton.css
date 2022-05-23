@@ -46,3 +46,52 @@
         width: 100%;
     }
 }
+
+@media screen and (min-width: 1250px){
+
+    .CTAButton{
+        padding: 15px;
+        font-size: 1.5rem;
+    }
+
+    .small-width{
+        width: 200px;
+    }
+}
+
+@media screen and (min-width: 1750px){
+
+
+    .CTAButton{
+        padding: 25px;
+        font-size: 2rem;
+    }
+
+    .small-width{
+        width: 300px;
+    }
+}
+
+@media screen and (min-width: 1800px){
+
+    .CTAButton{
+        padding: 25px;
+        font-size: 3rem;
+    }
+
+    .small-width{
+        width: 350px;
+    }
+}
+
+@media screen and (min-width: 2139px){
+
+    .CTAButton{
+        padding: 25px;
+        font-size: 3rem;
+    }
+
+    .small-width{
+        width: 400px;
+    }
+}
