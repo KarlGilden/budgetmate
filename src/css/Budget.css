@@ -1,0 +1,29 @@
+.budgets-grid{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    column-gap: 10px;
+    row-gap: 10px;
+}
+
+.budgets-header{
+    padding: 0px 10%;
+    margin-bottom: 50px;
+    font-family: 'Raleway', sans-serif;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.add-budget-icon{
+    font-size: 2.5rem;
+    margin-left: 5px;
+    color: #089f05;
+}
+
+.add-budget-container{
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    cursor: pointer;
+}
