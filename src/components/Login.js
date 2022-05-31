@@ -41,6 +41,7 @@ const Login = () => {
     
   return (
     <div className='login-form'>
+        <h1 className='login-header'>Login</h1>
         <label htmlFor="">Email:</label>
         <small className='small-error'>{emailError}</small>
         <input 

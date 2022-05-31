@@ -48,6 +48,7 @@ const Register = () => {
     
   return (
     <div className='login-form'>
+        <h1 className='login-header'>Register</h1>
         <label htmlFor="">Name:</label>
         <small className='small-error'>{nameError}</small> 
         <input 
